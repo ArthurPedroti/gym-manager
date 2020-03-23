@@ -61,7 +61,7 @@
 * **express**: ^4.17.1
 * **nunjucks**: ^3.2.0
 
-# devDependencies
+### devDependencies
 * **browser-sync**: ^2.26.7
 * **nodemon**: ^2.0.2
 * **npm-run-all**: ^4.1.5
