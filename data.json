@@ -1,10 +1,33 @@
 {
-  "members": [],
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1543975200-8e313fb04fc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "João",
+      "email": "joao@gmail.com",
+      "birth": 834796800000,
+      "gender": "M",
+      "blood": "AB-",
+      "weight": "88",
+      "height": "180"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "Fernanda",
+      "email": "fernanda@gmail.com",
+      "birth": 527126400000,
+      "gender": "F",
+      "blood": "O-",
+      "weight": "60",
+      "height": "170"
+    }
+  ],
   "instructors": [
     {
       "id": 2,
       "avatar_url": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-      "name": "arthur-pedroti",
+      "name": "Gustavo",
       "birth": 842054400000,
       "gender": "M",
       "services": "Musculação, crossfit",
@@ -12,8 +35,8 @@
     },
     {
       "id": 3,
-      "avatar_url": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80",
-      "name": "Mulher",
+      "avatar_url": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "Alessandra",
       "birth": 968112000000,
       "gender": "F",
       "services": "Musculação, crossfit",
@@ -21,21 +44,12 @@
     },
     {
       "id": 4,
-      "avatar_url": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "name": "DNS_SERVICES",
+      "avatar_url": "https://images.unsplash.com/photo-1543975200-8e313fb04fc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "José",
       "birth": 944352000000,
       "gender": "F",
       "services": "Musculação, crossfit, natacao",
       "created_at": 1585417327624
-    },
-    {
-      "id": 5,
-      "avatar_url": "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "name": "Arthur Totola Pedroti",
-      "birth": 944956800000,
-      "gender": "F",
-      "services": "Musculação, crossfit",
-      "created_at": 1585418349552
     }
   ]
 }
