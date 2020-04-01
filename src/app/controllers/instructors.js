@@ -1,5 +1,6 @@
-const Instructor = require("../models/Instructor");
 const { age, date } = require("../../lib/utils");
+
+const Instructor = require("../models/Instructor");
 
 module.exports = {
   index(req, res) {
@@ -14,7 +15,7 @@ module.exports = {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
-      if (req.body[key] == "") return res.send("Please, fill all the fields!");
+      if (req.body[key] == "") return res.send("Preencha todos os campos!");
     }
 
     Instructor.create(req.body, function(instructor) {
@@ -48,7 +49,7 @@ module.exports = {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
-      if (req.body[key] == "") return res.send("Please, fill all the fields!");
+      if (req.body[key] == "") return res.send("Preencha todos os campos!");
     }
 
     Instructor.update(req.body, function() {
@@ -58,6 +59,8 @@ module.exports = {
     return res.redirect(`/instructors`);
   },
   delete(req, res) {
-    return res.redirect(`/instructors`);
+    Instructor.delete(req.body.id, function() {
+      return res.redirect(`/instructors`);
+    });
   }
 };

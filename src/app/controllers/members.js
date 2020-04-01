@@ -1,9 +1,12 @@
-const Intl = require("intl");
 const { age, date } = require("../../lib/utils");
+
+const Member = require("../models/Member");
 
 module.exports = {
   index(req, res) {
-    return res.render("members/index");
+    Member.all(function(members) {
+      return res.render("members/index", { members });
+    });
   },
   create(req, res) {
     return res.render("members/create");
@@ -12,23 +15,49 @@ module.exports = {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
-      if (req.body[key] == "") return res.send("Please, fill all the fields!");
+      if (req.body[key] == "") return res.send("Preencha todos os campos!");
     }
 
-    let { avatar_url, birth, name, services, gender } = req.body;
+    Member.create(req.body, function(member) {
+      return res.redirect(`/members/${member.id}`);
+    });
 
     return res.redirect("/members");
   },
   show(req, res) {
-    return res.render("members/show");
+    Member.find(req.params.id, function(member) {
+      if (!member) return res.send("Membro não encontrado!");
+
+      member.birth = date(member.birth).birthDay;
+
+      return res.render("members/show", { member });
+    });
   },
   edit(req, res) {
-    return res.redirect(`/members`);
+    Member.find(req.params.id, function(member) {
+      if (!member) return res.send("Membro não encontrado!");
+
+      member.birth = date(member.birth).iso;
+
+      return res.render("members/edit", { member });
+    });
   },
   put(req, res) {
+    const keys = Object.keys(req.body);
+
+    for (key of keys) {
+      if (req.body[key] == "") return res.send("Preencha todos os campos!");
+    }
+
+    Member.update(req.body, function() {
+      return res.redirect(`/members/${req.body.id}`);
+    });
+
     return res.redirect(`/members`);
   },
   delete(req, res) {
-    return res.redirect(`/members`);
+    Member.delete(req.body.id, function() {
+      return res.redirect(`/members`);
+    });
   }
 };
