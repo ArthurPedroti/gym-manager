@@ -58,13 +58,17 @@
 
 ## :books: Technologies
 
-* **express**: ^4.17.1
-* **nunjucks**: ^3.2.0
+- **express**: ^4.17.1
+- **intl**: ^1.2.5
+- **method-override**: ^3.0.0
+- **nunjucks**: ^3.2.0
+- **pg**: ^8.0.0
 
 ### devDependencies
-* **browser-sync**: ^2.26.7
-* **nodemon**: ^2.0.2
-* **npm-run-all**: ^4.1.5
+
+- **browser-sync**: ^2.26.7
+- **nodemon**: ^2.0.2
+- **npm-run-all**: ^4.1.5
 
 ## :memo: License
 

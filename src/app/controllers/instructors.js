@@ -21,8 +21,6 @@ module.exports = {
     Instructor.create(req.body, function(instructor) {
       return res.redirect(`/instructors/${instructor.id}`);
     });
-
-    return res.redirect("/instructors");
   },
   show(req, res) {
     Instructor.find(req.params.id, function(instructor) {
@@ -51,12 +49,9 @@ module.exports = {
     for (key of keys) {
       if (req.body[key] == "") return res.send("Preencha todos os campos!");
     }
-
     Instructor.update(req.body, function() {
       return res.redirect(`/instructors/${req.body.id}`);
     });
-
-    return res.redirect(`/instructors`);
   },
   delete(req, res) {
     Instructor.delete(req.body.id, function() {

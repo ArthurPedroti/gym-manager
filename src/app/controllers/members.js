@@ -9,7 +9,9 @@ module.exports = {
     });
   },
   create(req, res) {
-    return res.render("members/create");
+    Member.instructorSelectOptions(function(options) {
+      return res.render("members/create", { instructorOptions: options });
+    });
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -21,8 +23,6 @@ module.exports = {
     Member.create(req.body, function(member) {
       return res.redirect(`/members/${member.id}`);
     });
-
-    return res.redirect("/members");
   },
   show(req, res) {
     Member.find(req.params.id, function(member) {
@@ -39,7 +39,12 @@ module.exports = {
 
       member.birth = date(member.birth).iso;
 
-      return res.render("members/edit", { member });
+      Member.instructorSelectOptions(function(options) {
+        return res.render("members/edit", {
+          member,
+          instructorOptions: options
+        });
+      });
     });
   },
   put(req, res) {
@@ -52,8 +57,6 @@ module.exports = {
     Member.update(req.body, function() {
       return res.redirect(`/members/${req.body.id}`);
     });
-
-    return res.redirect(`/members`);
   },
   delete(req, res) {
     Member.delete(req.body.id, function() {
