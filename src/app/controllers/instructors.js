@@ -4,9 +4,37 @@ const Instructor = require("../models/Instructor");
 
 module.exports = {
   index(req, res) {
-    Instructor.all(function(instructors) {
-      return res.render("instructors/index", { instructors });
-    });
+    let { filter, page, limit } = req.query;
+
+    page = page || 1;
+    limit = limit || 2;
+    let offset = limit * (page - 1);
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(instructors) {
+        let mathTotal =
+          instructors[0] == undefined
+            ? 0
+            : Math.ceil(instructors[0].total / limit);
+
+        const pagination = {
+          total: mathTotal,
+          page
+        };
+
+        return res.render("instructors/index", {
+          instructors,
+          pagination,
+          filter
+        });
+      }
+    };
+
+    Instructor.paginate(params);
   },
   create(req, res) {
     return res.render("instructors/create");
